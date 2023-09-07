@@ -9,7 +9,8 @@
     <div class="flex items-center justify-between w-full mt-3 text-xs font-medium text-gray-400">
       <span class="flex items-center h-6 px-3 text-xs font-semibold text-pink-500 bg-pink-100 rounded-full">{{ appointment.city }}</span>
 
-      <span class="flex items-center h-6 px-3 text-xs font-semibold text-black bg-yellow-100 rounded-full">{{ appointment.status }}</span>
+      <span v-if="appointment.status ==='ACTIVE'" class="flex items-center h-6 px-3 text-xs font-semibold text-black bg-green-500 rounded-full">{{ appointment.status }}</span>
+      <span v-else class="flex items-center h-6 px-3 text-xs font-semibold text-black bg-yellow-100 rounded-full">{{ appointment.status }}</span>
 
     </div>
     <h4 class="mt-1 text-sm font-medium">{{ appointment.username }}</h4>
