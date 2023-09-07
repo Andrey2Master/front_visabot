@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/css/tailwind.css'
 import router from "@/router/routre";
-import store from "@/store";
+import store from "./store/index"; //Это важно !!!
 // import components from "@/components/";
 
 const app = createApp(App)

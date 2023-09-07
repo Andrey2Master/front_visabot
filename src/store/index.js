@@ -1,17 +1,14 @@
 import {createStore} from 'vuex'
-// import {catalogModule} from "@/store/catalogModule";
+import {appointmentModule} from '@/store/appointmentModule'
 import {adminModule} from "@/store/adminModule";
-// import {productModule} from "@/store/productModule";
-// import {productList} from "@/store/productListModule";
+
 export default createStore({
     state: {
         isAuth: false,
     },
-    modules:{
-        // catalog: catalogModule,
+    modules: {
+        appointment: appointmentModule,
         admin: adminModule,
-        // product: productModule,
-        // productList: productList
     }
 
 })
