@@ -21,16 +21,15 @@ export default {
   data() {
     return {}
   },
-  methods: {},
-  mounted() {
-  },
   created() {
-    store.dispatch('appointment/getAppointmentFromApi', 'MOW2')
+    console.log(this.$route.params)
+    store.dispatch('appointment/getAppointments', store.getters.curCity)
   },
 
   computed: {
     ...mapState('appointment', ['appointmentData', 'catalogTitle']),
-    ...mapGetters('appointment', ['totalAppointment'])
+    ...mapGetters('appointment', ['totalAppointment']),
+
 
   },
 }

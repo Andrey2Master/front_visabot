@@ -6,7 +6,7 @@
         <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z"/>
       </svg>
     </button>
-    <div class="flex items-center justify-between w-full mt-3 text-xs font-medium text-gray-400">
+    <div class="flex items-center justify-between w-full mt-1 text-xs font-medium text-gray-400">
       <span class="flex items-center h-6 px-3 text-xs font-semibold text-pink-500 bg-pink-100 rounded-full">{{ appointment.city }}</span>
 
       <span v-if="appointment.status ==='ACTIVE'" class="flex items-center h-6 px-3 text-xs font-semibold text-black bg-green-500 rounded-full">{{ appointment.status }}</span>
@@ -15,6 +15,7 @@
     </div>
     <h4 class="mt-1 text-sm font-medium">{{ appointment.username }}</h4>
     <h4 class="mt-1 text-sm font-medium">{{ appointment.application_id }}</h4>
+    <h4 class="mt-1 text-sm font-medium">{{ appointment.email }}</h4>
 
     <div class="flex items-center w-full mt-3 text-xs font-medium text-gray-400">
       <div class="flex items-center">
@@ -26,7 +27,7 @@
         </svg>
         <span class="ml-1 leading-none">{{ appointment.start_date.substring(0, 10) }}</span>
       </div>
-      <div class="relative flex items-center ml-4">
+      <div v-if="appointment.start_date!==appointment.end_date" class="relative flex items-center ml-4">
         <svg class="w-4 h-4 text-red-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
              fill="currentColor">
           <path fill-rule="evenodd"
