@@ -30,7 +30,7 @@ export const appointments = {
         },
         async getAppointments({commit}, params) {
             try {
-                const response = await axios.get("/application", {params: {city: params}})
+                const response = await axios.get("/application/", {params: {city: params}})
                 commit("setAppointments", response.data.data, params);
             } catch (e) {
                 console.log(e)
