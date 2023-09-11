@@ -24,9 +24,8 @@
       </div>
 
       <!-- right navbar -->
-      <div class="flex items-center relative">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="fill-current mr-3 hover:text-blue-500"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
-        <img src="https://a7sas.net/wp-content/uploads/2019/07/4060.jpeg" class="w-12 h-12 rounded-full shadow-lg" @click="dropDownOpen = !dropDownOpen">
+      <div @click="logOut" class="flex items-center relative">
+        <svg class="h-8 w-8 text-red-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />  <path d="M7 12h14l-3 -3m0 6l3 -3" /></svg>
       </div>
 
     </div>
@@ -48,7 +47,7 @@ import {mapActions, mapState} from 'vuex'
 export default {
   name: 'NavBar',
   computed: {
-    ...mapState('admin',['sideBarOpen'])
+    ...mapState('admin',['sideBarOpen']),
   },
   data() {
     return {
@@ -56,9 +55,8 @@ export default {
     }
   },
   methods: {
-    ...mapActions('admin',{
-      toggleSidebar:'toggleSidebar'
-    }),
+    ...mapActions('admin',{toggleSidebar:'toggleSidebar'}),
+    ...mapActions('user',{logOut:"logOut"})
   }
 }
 </script>
