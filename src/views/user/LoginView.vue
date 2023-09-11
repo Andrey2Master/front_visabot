@@ -44,7 +44,7 @@ export default {
     }
   },
   methods:{
-    ...mapActions(['logIn']),
+    ...mapActions('user',['logIn']),
     async submit(){
       await this.logIn(this.user);
       this.$router.push('/appointment');
