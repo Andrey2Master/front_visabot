@@ -1,4 +1,8 @@
 <template>
+  <div class="flex flex-wrap justify-between gap-4 p-2 rounded-lg bg-white">
+    <div>{{ currentBot }}</div>
+
+  </div>
   <div class="flex flex-wrap justify-evenly gap-4 p-4">
     <v-appointment-item
         v-for="(appointment, index) in appointmentData"
@@ -29,6 +33,7 @@ export default {
   computed: {
     ...mapState('appointment', ['appointmentData', 'catalogTitle']),
     ...mapGetters('appointment', ['totalAppointment']),
+    ...mapState('bots', ['currentBot']),
 
 
   },

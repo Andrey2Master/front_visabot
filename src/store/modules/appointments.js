@@ -31,7 +31,8 @@ export const appointments = {
         async getAppointments({commit}, params) {
             try {
                 const response = await axios.get("/application", {params: {city: params}})
-                commit("setAppointments", response.data.data, params);
+                console.log(response.data)
+                commit("setAppointments", response.data, params);
             } catch (e) {
                 console.log(e)
             }

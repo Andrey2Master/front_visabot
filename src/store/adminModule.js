@@ -11,13 +11,13 @@ export const adminModule = {
         toggleSidebar(state) {
             state.sideBarOpen = !state.sideBarOpen
         },
-        setLayout(state, layout){
-            state.layout = layout
+        hideSideBar(state){
+            state.sideBarOpen = false
         }
 
     }, actions: {
-        testAction(){
-            console.log('Test action')
+        hideSideBar(context){
+            context.commit('hideSideBar')
         },
         toggleSidebar(context) {
             console.log('toggleSidebar')

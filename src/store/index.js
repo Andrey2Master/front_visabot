@@ -2,6 +2,7 @@ import {createStore} from 'vuex'
 import {appointments} from '@/store/modules/appointments'
 import {adminModule} from "@/store/adminModule";
 import {user} from "@/store/modules/user";
+import {bots} from "@/store/modules/bots";
 
 export default createStore({
     state: {
@@ -14,7 +15,8 @@ export default createStore({
     modules: {
         appointment: appointments,
         admin: adminModule,
-        user: user
+        user: user,
+        bots: bots,
     }
 
 })

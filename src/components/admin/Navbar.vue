@@ -24,7 +24,7 @@
       </div>
 
       <!-- right navbar -->
-      <div @click="logOut" class="flex items-center relative">
+      <div @click="userLogOut" class="flex items-center relative">
         <svg class="h-8 w-8 text-red-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />  <path d="M7 12h14l-3 -3m0 6l3 -3" /></svg>
       </div>
 
@@ -56,7 +56,12 @@ export default {
   },
   methods: {
     ...mapActions('admin',{toggleSidebar:'toggleSidebar'}),
-    ...mapActions('user',{logOut:"logOut"})
+    ...mapActions('user',['logOut']),
+    userLogOut(){
+      this.logOut()
+      this.$router.push('/');
+    }
+
   }
 }
 </script>

@@ -1,11 +1,13 @@
 import HelloWorld from "@/components/HelloWorld";
 import {createRouter, createWebHistory} from "vue-router/dist/vue-router";
 import AdminLayout from "@/layout/AdminLayout";
-import VAppointmentList from "@/views/v-appointment-list";
-import appointmentCreate from "@/views/appointmentCreate";
+import VAppointmentList from "@/views/appointments/v-appointment-list";
+import appointmentCreate from "@/views/appointments/appointmentCreate";
 import LoginView from "@/views/user/LoginView";
 import EmptyLayout from "@/layout/EmptyLayout";
 import RegisterView from "@/views/user/RegisterView";
+import VBotsList from "@/views/bots/VBotsList";
+import store from "@/store";
 
 const routes = [
     {
@@ -38,6 +40,12 @@ const routes = [
         component: appointmentCreate,
         meta: {layout: AdminLayout},
     },
+    {
+        path: '/bots',
+        name: 'Bots',
+        component: VBotsList,
+        meta: {layout: AdminLayout},
+    },
 ]
 
 const router = createRouter(
@@ -46,4 +54,7 @@ const router = createRouter(
         history: createWebHistory(process.env.BASE_URL)
     }
 )
+router.afterEach(() => {
+    store.commit('admin/hideSideBar')
+})
 export default router

@@ -58,7 +58,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['register']),
+    ...mapActions('user',['register']),
     async doRegister() {
       this.isPassError = this.user.password !== this.user.password_2
       delete this.user.password_2

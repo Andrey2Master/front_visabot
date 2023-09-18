@@ -43,10 +43,11 @@ export default {
       default: true
     }
   },
-  emits: ['update:show'],
+  emits: ['update:show', 'close'],
   methods: {
     hideDialog() {
       this.isShow = false
+      this.$emit('close')
     }
   },
 }
